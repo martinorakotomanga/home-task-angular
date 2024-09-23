@@ -1,0 +1,32 @@
+<app-nav-page></app-nav-page>
+<div *ngIf="!spin" class="container-xl me-5">
+    <div class="d-flex justify-content-between">
+        <h2>Bienvenue !</h2>
+        <h4 class="Logo">
+          Mentalist
+        </h4>
+    </div>
+    <div class="row mt-5">
+        <div class="col col-xl-6">
+            <div class="col1">
+                
+                <p class="h4 text-dark">Bonjour</p>
+                <p class="h5 text-dark">
+                    bienvenue sur , notre application web <br>, qui est conçu pour modeliser les tâches qui se déroulent <br> dans un foyer.
+                </p>
+                <br>
+                <p class="h6">
+                    Les tâches du jours doit être éffectuée par les duo dans chaque chambres 
+                    <br>et verifiée par un controleur !
+                </p>
+                <br>
+                <p class="h6">Pour obtenir plus d'information sur nous, veuillez <b>clicker</b> <br>sur le bouton <b> ci-dessous. </b></p>
+                <button class="btn rounded-1 btn-sm mt-5 text-light px-3">En savoir plus</button>
+            </div>
+        </div>
+        <div class="col col-xl-6">
+            <img src="../../../assets/img/bg2-2.png" width="500" height="350">
+        </div>
+    </div>
+</div>
+<app-spin *ngIf="spin"></app-spin>

@@ -1,0 +1,24 @@
+<div class="container w-50 fixed-bottom mb-5 rounded">
+    <nav class="navbar">
+      <form class="container-fluid justify-content-around align-content-center">
+        <a (click)="goToAnotherPage('/task/home')" appNavDirective>
+          <i class="bi bi-house"></i>
+        </a>
+        <a (click)="goToAnotherPage('/task/calendar')" appNavDirective>
+          <i class="bi bi-calendar"></i>
+        </a>
+        <a (click)="goToAnotherPage('/task/list')" appNavDirective>
+          <i class="bi bi-clipboard-check"></i>
+        </a>
+        <a (click)="goToAnotherPage('/task/profil')" appNavDirective>
+          <i class="bi bi-person"></i>
+        </a>
+        <a (click)="goToAnotherPage('/task/message')" appNavDirective>
+          <i class="bi bi-chat"></i>
+        </a>
+        <a *ngIf="isAdministrator" (click)="isAdminComment ? goToAnotherPage('/comment') : goToAnotherPage('/admin')" appNavDirective>
+          <i class="bi bi-pen"></i>
+        </a>
+      </form>
+    </nav>
+</div>

@@ -1,0 +1,95 @@
+<div *ngIf="paiementsWater" class="position-fixed w-100 rounded-1">
+    <div class="w-100">
+        <nav class="nav px-5 d-flex align-items-center justify-content-between bg-light">
+            <h1 class="h2 text-dark">Administration</h1>
+            <button class="btn" routerLink="/task/home">Acceuil</button>
+        </nav>
+    </div>
+
+    <div class="border-0 mx-5 card mt-5">
+        <h5 class="card-header text-light">Eau</h5>
+        <div class="card-body">
+            <table class="table table-sm table-bordered">
+                <thead> 
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let userWater of paiementsWater">
+                        <th scope="row">-</th>
+                        <td>{{ userWater.user_name }}</td>
+                        <td>{{ userWater.payment_date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="border-0 mx-5 card mt-5">
+        <h5 class="card-header text-light">Electricité</h5>
+        <div class="card-body">
+            <table class="table table-sm table-bordered">
+                <thead> 
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let userElectric of paiementsElectric">
+                        <th scope="row">-</th>
+                        <td>{{ userElectric.user_name }}</td>
+                        <td>{{ userElectric.payment_date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="w-100 text-end">
+                <button (click)="toggleAdd()" class="p-2 pt-1 btn">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Ajout-->
+    <div *ngIf="hiddenAdd" class="ajout-container align-items-center position-absolute top-0 w-100 justify-content-center d-flex">
+        <div class="card ajout border-0 w-75">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+                <h4 class="text-center text-light pt-2">Ajouter dans la liste</h4>
+                <div (click)="toggleAdd()" class="btn btn-close btn-light text-light"></div>
+            </div>
+            <div class="card-body">
+
+                <form (ngSubmit)="handleSubmitAdd($event)" [formGroup]="formAddAdmin">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label" for="">Matricule</label>
+                            <input type="text" formControlName="matricule" placeholder="*****">
+                        </div>
+
+                        <div class="form-group">
+                            <select (change)="setChoice($event)" name="admin" id="admin" class="form-control">
+                                <option value="water" selected>Eau</option>
+                                <option value="electric">Electricité</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w-100 text-end">
+                        <button class="btn me-2 bg-danger" type="reset">Reset</button>
+                        <button class="btn bg-success" type="submit" [disabled]="!formAddAdmin.valid">Valider</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="m-0 w-100 fw-bold text-center alert alert-info position-fixed bottom-0">Page réservée seulement aux Administrateurs Eau et Electricité</div>
+</div>
+<div *ngIf="!paiementsWater" class="spinner spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>

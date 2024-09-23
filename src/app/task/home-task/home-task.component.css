@@ -1,0 +1,17 @@
+.col1 {
+    color: #757575;
+    margin-left: 10px;
+}
+.container-xl {
+    margin-top: 5%;
+    width: 75%;
+}
+h2 {
+    color: #333333;
+}
+.btn {
+    background-color: #ed722f;
+}
+.container-xl, button {
+    font-family: "SourceSansPro";
+}

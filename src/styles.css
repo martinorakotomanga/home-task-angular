@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+@font-face {
+    font-family: "SourceSansPro";
+    src: url("../src/assets/fonts/SourceSans3-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "QuickSand";
+    src: url("../src/assets/fonts/Quicksand-VariableFont_wght.ttf");
+}
+.Logo {
+    font-family: "QuickSand";
+}

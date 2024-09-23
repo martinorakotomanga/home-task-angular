@@ -1,0 +1,21 @@
+.col1 {
+    margin-left: 10px;
+}
+.container-xl {
+    font-family: "SourceSansPro";
+    margin-top: 5%;
+    width: 75%;
+}
+.col1, table th {
+    color: #585757;
+}
+td {
+    color: #403d3d;
+}
+tbody tr > th, td {
+    border: thin solid whitesmoke;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    padding: 6px 5px;
+}

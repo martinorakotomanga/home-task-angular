@@ -1,0 +1,19 @@
+* {
+    font-family: "SourceSansPro";
+}
+.container-xl {
+    margin-top: 5%;
+    width: 75%;
+}
+.h5,.h6 {
+    color: #4e4e4e;
+}
+span, .text {
+    color: #6f6f6f;
+}
+.text {
+    width: 80%;
+}
+.tache {
+    color: #ed722f;
+}

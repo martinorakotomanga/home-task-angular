@@ -1,0 +1,33 @@
+<app-nav-page></app-nav-page>
+<div *ngIf="!spin" class="container-xl me-5">
+    <div class="d-flex justify-content-between">
+        <h2>Calendrier de tâches</h2>
+        <h4 class="Logo">
+          Mentalist
+        </h4>
+    </div>
+    <div class="row mt-5">
+        <div class="col col-xl-6">
+        <table class="mt-2 text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Jours</th>
+                    <th scope="col">cham/tâche</th>
+                    <th scope="col">cham/tâche</th>
+                    <th scope="col">cham/tâche</th>
+                    <th scope="col">cham/tâche</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let day of Object.keys(WeekListTask)">
+                    <th scope="row">{{ day }}</th>
+                    <td  class="{{ WeekListTask[day][task] | dayTaskBgColor }}" *ngFor="let task of Object.keys(WeekListTask[day])">{{ task }} : {{  WeekListTask[day][task] }}</td>
+                </tr>   
+            </tbody>
+        </table>
+        </div>
+        <div class="col col-xl-6 d-flex justify-content-center">
+            <img src="../../../assets/img/bg4-2.png" width="500" height="350">
+        </div>
+    </div>
+</div>

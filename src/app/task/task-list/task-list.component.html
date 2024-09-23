@@ -1,0 +1,31 @@
+<app-nav-page></app-nav-page>
+<div *ngIf="!spin" class="container-xl me-5">
+    <div class="d-flex justify-content-between">
+        <h2>Liste des tâches et ses déscriptions</h2>
+        <h4 class="Logo">
+          Mentalist
+        </h4>
+    </div>
+    <div class="row mt-5 d-flex justify-content-center align-items-center">
+        <div class="col col-xl-6">
+          <table class="table w-75">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Chambres</th>
+              <th scope="col">tâches</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let task of Object.keys(dayTask)">
+              <th scope="row">--</th>
+              <td>{{ task }}</td>
+              <td>{{ dayTask[task] }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col col-xl-6 d-flex justify-content-center">
+            <img src="../../../assets/img/bg9-2.png" width="500" height="350">
+        </div>
+    </div>
+</div>

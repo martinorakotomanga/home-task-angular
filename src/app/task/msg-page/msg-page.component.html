@@ -1,0 +1,36 @@
+<app-nav-page></app-nav-page>
+<div *ngIf="!spin" class="container w-75 me-5 mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>Message</h2>
+        </div>
+        <div class="card-body">
+            <div class="container overflow-auto">
+                <div *ngIf="!allMessage.length" class="text-center">Aucun message</div>
+                <div class="w-100 rounded-1"
+                    *ngFor="let message of allMessage">
+                    <div *ngIf="message.matricule == userMatricule" class="d-flex justify-content-end">
+                        <p class="fw-medium w-50 p-3 rounded-1 bg-light">{{ message.content }}</p>
+                    </div>
+                    <div *ngIf="message.matricule != userMatricule">
+                        <h5>{{ message.user_name }}</h5>
+                        <p class="fw-medium text-info w-50 p-3">{{ message.content }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container row mt-5">
+                <div class="col">
+                    <input
+                        type="text"
+                        name="message"
+                        [(ngModel)]="content"
+                    >
+                </div>
+                <button (click)="handleMessage()" class="btn col-1 text-light">
+                    Envoyer
+                </button>
+            </div>
+        </div>  
+    </div>
+</div>
+<app-spin *ngIf="spin"></app-spin>

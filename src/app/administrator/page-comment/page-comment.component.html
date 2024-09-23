@@ -1,0 +1,71 @@
+<div *ngIf="remarques" class="position-fixed w-100 rounded-1">
+    <div class="w-100">
+        <nav class="nav px-5 d-flex align-items-center justify-content-between bg-light">
+            <h1 class="h2 text-dark">Administration</h1>
+            <button class="btn" routerLink="/task/home">Acceuil</button>
+        </nav>
+    </div>
+
+    <div class="border-0 mx-5 card mt-5">
+        <h5 class="card-header text-light">Commentaires</h5>
+        <div class="card-body">
+            <table class="table table-sm table-bordered">
+                <thead> 
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Commentaire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let remarque of Object.keys(remarques)">
+                        <th scope="row">-</th>
+                        <td>{{ remarque }}</td>
+                        <td>{{ remarques[remarque] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Commentaire -->
+    <div *ngIf="hiddenComment" class="ajout-container align-items-center position-absolute top-2 w-100 justify-content-center d-flex">
+        <div class="card ajout border-0 w-75">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+                <h4 class="text-center text-light pt-2">Ajouter un commentaire</h4>
+                <div (click)="toggleComment()" class="btn btn-close btn-light text-light"></div>
+            </div>
+            <div class="card-body">
+
+                <form (ngSubmit)="handleSubmitComment($event)" [formGroup]="formCommentAdmin">
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label class="form-label" for="matricule">Matricule</label>
+                            <input id="matricule" type="text" formControlName="matricule" placeholder="*****">
+                            <div [hidden]="formCommentAdmin.get('matricule')?.valid || formCommentAdmin.get('matricule')?.pristine" class="alert alert-danger">Champs requis a 5 chiffres !</div>
+                        </div>
+        
+                        <div class="col-6 form-group">
+                            <label class="form-label" for="message">Commentaire</label>
+                            <input id="message" type="text" formControlName="message" placeholder="Bonjour">
+                        </div>
+                    </div>
+                    <div class="w-100 text-end">
+                        <button class="btn me-2 bg-danger" type="reset">Reset</button>
+                        <button class="btn bg-success" type="submit" [disabled]="!formCommentAdmin.valid">Valider</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="w-100 fw-bold m-0 text-end alert alert-info position-fixed bottom-0">
+        <button (click)="toggleComment()" class="mx-4 p-2 pt-1 btn bg-info">
+            <i class="bi bi-chat"></i>
+        </button>
+    </div>
+</div>
+<div *ngIf="!remarques" class="spinner spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>

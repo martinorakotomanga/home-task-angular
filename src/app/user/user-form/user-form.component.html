@@ -1,0 +1,43 @@
+<div class="fond position-fixed w-100 p-5 rounded-1 ">
+    <div class="card w-50 m-auto border-0 shadow mt-5">
+        <h5 class="card-header p-4 text-white">
+            Se connecter
+        </h5>
+        <div class="card-body mt-3">
+            <form class="row" (ngSubmit)="onSubmit()" [formGroup]="userForm">
+                <div class="col-6">
+                    <img src="../../../assets/img/bg13-1.png" class="img-fluid">
+                </div>
+                <div class="col-6">
+                    <div class="form-group mx-3 my-5">
+                        <label for="matricule" class="form-label">N_matricule</label>
+                        <input type="text" class="form-control"
+                            formControlName="matricule" required>
+                        <div [hidden]="!errorMsg['matricule']" class="alert alert-danger">{{ errorMsg['matricule'] }}</div>
+                    </div>
+        
+                    <div class="form-group mx-3 my-5">
+                        <label for="">Mot de passe</label>
+                        <input type="text" class="form-control"
+                            formControlName="password">
+                        <div [hidden]="!errorMsg['password']" class="alert  alert-danger">{{ errorMsg['password'] }}</div>
+                    </div>
+    
+                    <div class="text-end me-3">
+                        <div *ngIf="spin" class="btn d-inline-flex justify-content-center align-items-center">
+                            <div class="spinner-border text-light" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <button
+                            *ngIf="!spin"
+                            class="btn rounded-1 text-white"
+                            type="submit"
+                            [disabled]="!userForm.valid">connexion
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

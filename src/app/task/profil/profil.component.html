@@ -1,0 +1,33 @@
+<app-nav-page></app-nav-page>
+<div *ngIf="user" class="container-xl me-5">
+    <div class="d-flex justify-content-between">
+        <h2>Page personnelle</h2>
+        <h4 class="Logo">
+          Mentalist
+        </h4>
+    </div>
+    <div class="row mt-5">
+        <div class="col col-xl-6">
+            <div class="col">
+                <div class="h5 fw-bold">Apropos de vous</div>
+                <div class="mt-4 mx-2">
+                    <div>Institut ou grand école: {{user.es}}</div>
+                    <div>Numero chambre: {{ user.room_number }}</div>
+                    <div>Nom: {{ user.name }}</div>
+                </div>
+                <div *ngIf="user.latest_remark">
+                    <div class="h6 fw-bold mt-5">Une remarque apropos de vos :</div>
+                    <div class="text mx-2">{{ user.latest_remark }}</div>
+                </div>
+                <div *ngIf="task" class="tache h6 fw-bold mt-5">Tâche:</div>
+                <span *ngIf="task" >Vous et votre collocateur a comme tâche le <b>{{ task }}</b> aujourd'hui </span>
+                <div>
+                    <button class="btn mt-5" (click)="logOut()">déconnexion</button>
+                </div>
+            </div>
+        </div>
+        <div class="col col-xl-6">
+            <img src="../../../assets/img/bg13-1.png" width="500" height="350">
+        </div>
+    </div>
+</div>
